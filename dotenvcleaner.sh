@@ -103,7 +103,7 @@ clean_env() {
 
 install_hook() {
   local hook_dir=".git/hooks"
-  local hook_file="$hook_dir/pre-push"
+  local hook_file="$hook_dir/pre-commit"
 
   if [[ ! -d ".git" ]]; then
     echo "Error: Not in a git repository root" >&2
@@ -116,7 +116,7 @@ install_hook() {
 #!/usr/bin/env bash
 
 ENV_FILE=".env"
-BACKUP_FILE=".env.backup.$$"
+BACKUP_FILE=".env.backup.$"
 
 restore_env() {
   if [[ -f "$BACKUP_FILE" ]]; then
@@ -131,11 +131,11 @@ if [[ ! -f "$ENV_FILE" ]]; then
   exit 0
 fi
 
-if ! git ls-files --error-unmatch "$ENV_FILE" &>/dev/null; then
+if ! git diff --cached --name-only | grep -q "^\.env$"; then
   exit 0
 fi
 
-echo "⚠️  WARNING: .env detected in commit"
+echo "⚠️  WARNING: .env detected in staged files"
 echo ""
 
 cp "$ENV_FILE" "$BACKUP_FILE"
@@ -148,10 +148,8 @@ else
   exit 1
 fi
 
-git add "$ENV_FILE"
-
 echo "============================================"
-echo "CLEANED .env CONTENT TO BE PUSHED:"
+echo "CLEANED .env CONTENT TO BE COMMITTED:"
 echo "============================================"
 cat "$ENV_FILE"
 echo "============================================"
@@ -161,13 +159,13 @@ read -p "Are the tokens clean? (y/N): " -n 1 -r </dev/tty
 echo
 
 if [[ ! $REPLY =~ ^[YySs]$ ]]; then
-  echo "Push cancelled by user"
-  restore_env
-  git reset HEAD "$ENV_FILE"
+  echo "Commit cancelled by user"
   exit 1
 fi
 
-echo "✓ Push authorized, uploading changes..."
+git add "$ENV_FILE"
+
+echo "✓ Commit authorized with cleaned .env"
 HOOK_EOF
 
   chmod +x "$hook_file"
