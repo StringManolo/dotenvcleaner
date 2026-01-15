@@ -131,7 +131,7 @@ if [[ ! -f "$ENV_FILE" ]]; then
   exit 0
 fi
 
-if ! git diff --cached --name-only | grep -q "^\.env$"; then
+if ! git ls-files --error-unmatch "$ENV_FILE" &>/dev/null; then
   exit 0
 fi
 
