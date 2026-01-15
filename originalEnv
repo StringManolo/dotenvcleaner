@@ -1,0 +1,49 @@
+# --- OAUTH & SOCIAL LOGIN ---
+GOOGLE_CLIENT_ID=google-id-example
+GOOGLE_CLIENT_SECRET=google-secret-example
+GITHUB_CLIENT_ID=github-id-example
+GITHUB_CLIENT_SECRET=github-secret-example
+AUTH0_DOMAIN=your-tenant.auth0.com
+AUTH0_AUDIENCE=https://api.myapp.com
+
+# --- AI & MACHINE LEARNING ---
+OPENAI_API_KEY=sk-proj-xxxxxxxxxxxx
+ANTHROPIC_API_KEY=sk-ant-xxxxxxxxxxxx
+HUGGINGFACE_TOKEN=hf_xxxxxxxxxxxx
+PINECONE_API_KEY=xxxx-xxxx-xxxx
+PINECONE_ENVIRONMENT=us-east-1
+
+# --- SEARCH ENGINES ---
+ALGOLIA_APP_ID=latency
+ALGOLIA_API_KEY=xxxxxxxxxxxx
+ELASTICSEARCH_NODE=https://localhost:9200
+ELASTICSEARCH_USERNAME=elastic
+ELASTICSEARCH_PASSWORD=changeme
+
+# --- COMMUNICATION & CHANNELS ---
+TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxx
+TWILIO_AUTH_TOKEN=xxxxxxxxxxxx
+TWILIO_PHONE_NUMBER=+123456789
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
+
+# --- ANALYTICS & MARKETING ---
+GOOGLE_ANALYTICS_ID=G-XXXXXXXX
+MIXPANEL_PROJECT_TOKEN=xxxxxxxxxxxx
+SEGMENT_WRITE_KEY=xxxxxxxxxxxx
+HOTJAR_ID=12345
+
+# --- CI/CD & DEPLOYMENT ---
+HEROKU_API_KEY=xxxxxxxxxxxx
+VERCEL_TOKEN=xxxxxxxxxxxx
+NETLIFY_AUTH_TOKEN=xxxxxxxxxxxx
+DOCKER_REGISTRY_USER=myusername
+DOCKER_REGISTRY_PASS=mypassword
+
+# --- FEATURE FLAGS ---
+LAUNCHDARKLY_SDK_KEY=sdk-xxxxxxxxxxxx
+UNLEASH_API_URL=https://unleash-api.com/api/
+
+# --- DUMMY TOKENS ---
+TokenWithEqualSign='allowed=CharsAre^_=[]'
+Token2=ABC
