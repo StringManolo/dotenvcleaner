@@ -157,7 +157,7 @@ cat "$ENV_FILE"
 echo "============================================"
 echo ""
 
-read -p "Are the tokens clean? (y/N): " -n 1 -r
+read -p "Are the tokens clean? (y/N): " -n 1 -r </dev/tty
 echo
 
 if [[ ! $REPLY =~ ^[YySs]$ ]]; then
